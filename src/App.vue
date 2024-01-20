@@ -37,7 +37,7 @@ export default {
 
     const handleSearch = async (modelYear, make, model) => {
       try {
-        errorMessages.value = []; // Clear previous error messages
+        errorMessages.value = []; 
 
         if (modelYear && make && model) {
           const recalls = await getRecallsByVehicle(modelYear, make, model);
@@ -45,11 +45,11 @@ export default {
           if (recalls && recalls.results && recalls.results.length > 0) {
             searchResults.value = recalls;
           } else {
-            // Handle invalid input
+            
             errorMessages.value.push('No recalls found for the given input.');
           }
         } else {
-          // Handle missing parameters
+          
           errorMessages.value.push('Please fill in all input fields.');
         }
       } catch (error) {

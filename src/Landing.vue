@@ -4,7 +4,7 @@
       <h1 class="mb-4 flex justify-center items-center font-bold text-black dark:text-white">Vehicle Recall Search</h1>
     </div>
   
-    <!-- Display error messages -->
+    <!--  error messages -->
     <div v-if="errorMessages.length" class="flex justify-center text-sm font-bold text-black dark:text-white mt-4 mb-2">
       <ul>
         <li v-for="(errorMessage, index) in errorMessages" :key="index">{{ errorMessage }}</li>
@@ -93,7 +93,7 @@ export default {
   props: {
     onSearch: Function,
     searchResults: Object,
-    errorMessages: Array, // Added prop for error messages
+    errorMessages: Array,
   },
   setup(props) {
     const modelYear = ref('');
@@ -101,7 +101,7 @@ export default {
     const model = ref('');
 
     const handleSearchClick = () => {
-      props.errorMessages = []; // Clear previous error messages
+      props.errorMessages = []; 
 
       if (!modelYear.value || !make.value || !model.value) {
         props.errorMessages.push('Please confirm the year, make, and model are entered correctly and try again.');
@@ -144,7 +144,7 @@ const data = ref({
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       console.log('Registration successful!');
-      // Additional actions on success if needed
+      
     } catch (err) {
       console.error(err);
     }
@@ -164,7 +164,7 @@ const data = ref({
   async function signOutUser() {
     try {
       await signOut(auth);
-      // Additional actions on successful sign out if needed
+      
     } catch (err) {
       console.error(err);
     }
